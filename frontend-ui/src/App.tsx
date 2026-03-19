@@ -5,6 +5,7 @@ import ProfileHeader from './components/ProfileHeader';
 import HomePage from './components/HomePage';
 import CoursePage from './components/CoursePage';
 import StudentPage from './components/StudentPage';
+import AddStudentPage from './components/AddStudentPage';
 import LoginPage from './components/LoginPage';
 import QuestionTable from './components/QuestionTable';
 import type { Filters } from './types';
@@ -93,6 +94,7 @@ export default function App() {
 
             {/* Students Page */}
             <Route path="/students" element={<StudentPage />} />
+            <Route path="/students/add" element={<AddStudentPage />} />
 
             {/* Students Page Placeholder (Removed and Replaced by StudentPage) */}
           </Routes>

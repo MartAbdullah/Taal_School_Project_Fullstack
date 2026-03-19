@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { Student } from '../types';
-import { Search, Users, GraduationCap, MapPin, UserCircle } from 'lucide-react';
+import { Search, Users, GraduationCap, MapPin, UserCircle, UserPlus } from 'lucide-react';
 
 export default function StudentPage() {
+  const navigate = useNavigate();
   const [students, setStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -41,27 +43,37 @@ export default function StudentPage() {
   return (
     <div className="max-w-7xl mx-auto px-8 py-10 space-y-8 animate-in fade-in duration-700">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider border border-blue-100">
-            <Users size={14} />
-            Student Directory
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider border border-blue-100">
+              <Users size={14} />
+              Student Directory
+            </div>
+            <h1 className="text-4xl font-black text-slate-900 tracking-tight">University Enrollment</h1>
+            <p className="text-slate-500 font-medium italic">Global student database and academic levels</p>
           </div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight">University Enrollment</h1>
-          <p className="text-slate-500 font-medium italic">Global student database and academic levels</p>
-        </div>
 
-        <div className="relative group min-w-75">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
-          <input 
-            type="text"
-            placeholder="Search by name or country..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-6 py-4 bg-white rounded-2xl border border-slate-200 outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm shadow-slate-200/50"
-          />
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => navigate('/students/add')}
+              className="flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 active:scale-95 transition-all shadow-xl shadow-blue-200"
+            >
+              <UserPlus size={20} />
+              Add Student
+            </button>
+
+            <div className="relative group min-w-75">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={18} />
+              <input 
+                type="text"
+                placeholder="Search by name or country..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-6 py-4 bg-white rounded-2xl border border-slate-200 outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm shadow-slate-200/50"
+              />
+            </div>
+          </div>
         </div>
-      </div>
 
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
