@@ -14,8 +14,8 @@ class Question(Base):
     question_count = Column(Integer)
     status = Column(String(50))
 
-class StudentStats(Base):
-    __tablename__ = "student_stats"
+class Course(Base):
+    __tablename__ = "courses"
 
     student_id = Column(Integer, primary_key=True, index=True)
     country = Column(String(100))
