@@ -20,7 +20,34 @@ Bu depo, React (Vite) ile kodlanmış bir ön yüz ve Python FastAPI tabanlı bi
 - Docker Compose
 
 ---
+## ⚙️ Environment Variables (bu dosyalari yerelde bilgisayrinizda olustrmaniz gerekiyor)
 
+## Backend (.env dosyası - backend-api/.env):
+```env
+DB_USER=root
+DB_PASSWORD=!@#123qwert (kendi sifrenizi yazin)
+DB_HOST=localhost
+DB_NAME=career_academy
+DB_PORT=3306
+
+# Auth Credentials
+AUTH_EMAIL=johndoe@careeracademy.com
+AUTH_PASSWORD=password123
+
+# Security
+SECRET_KEY=9a2f6b8c4d2e1f0a3b5c7d9e8f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=43200
+```
+
+## Frontend (.env dosyası - frontend-ui/.env):
+```env
+# Auth Credentials
+AUTH_EMAIL=johndoe@careeracademy.com
+AUTH_PASSWORD=password123
+```
+
+---
 ## 🚀 Kurulum ve Çalıştırma
 
 ### Option 1: Yerel Kurulum 👨‍💻
@@ -208,34 +235,7 @@ GET /api/questions/{id}        # Soru detayları
 
 ---
 
-## ⚙️ Environment Variables (bu dosyalari yerelde bilgisayrinizda olustrmaniz gerekiyor)
 
-**Backend (.env dosyası - backend-api/.env):**
-```env
-DB_USER=root
-DB_PASSWORD=!@#123qwert (kendi sifrenizi yazin)
-DB_HOST=localhost
-DB_NAME=career_academy
-DB_PORT=3306
-
-# Auth Credentials
-AUTH_EMAIL=johndoe@careeracademy.com
-AUTH_PASSWORD=password123
-
-# Security
-SECRET_KEY=9a2f6b8c4d2e1f0a3b5c7d9e8f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=43200
-```
-
-**Frontend (.env dosyası - frontend-ui/.env):**
-```env
-# Auth Credentials
-AUTH_EMAIL=johndoe@careeracademy.com
-AUTH_PASSWORD=password123
-```
-
----
 
 ## ⚠️ Yaygın Sorunlar ve Çözümleri
 
